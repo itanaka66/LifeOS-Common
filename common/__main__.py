@@ -15,8 +15,8 @@ def main():
     """Main entry point for the common module."""
     print("LifeOS Common Module")
     print("====================")
-    print(f"Version: {__version__}")
-    print(f"Author: {__author__}")
+    print("Version: 1.0.0")
+    print("Author: LifeOS Team")
     print("\nAvailable components:")
     print("- PluginInterface")
     print("- PluginManagerInterface")
