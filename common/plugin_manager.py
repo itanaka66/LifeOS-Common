@@ -85,6 +85,26 @@ class BasePluginManager(PluginManagerInterface):
         self._config = config or {}
         self._loaded_plugins = set()
 
+    def unregister_plugin(self, plugin_id: str) -> bool:
+        """
+        Unregister a plugin class from the system.
+
+        Args:
+            plugin_id: The ID of the plugin to unregister
+
+        Returns:
+            True if unregistration was successful
+        """
+        try:
+            if plugin_id in self._plugin_classes:
+                del self._plugin_classes[plugin_id]
+                self._logger.info(f"Unregistered plugin: {plugin_id}")
+                return True
+            return False
+        except Exception as e:
+            self._logger.error(f"Failed to unregister plugin {plugin_id}: {e}")
+            return False
+
     def register_plugin(self, plugin_class: Type[PluginInterface]) -> bool:
         """
         Register a plugin class with the system.

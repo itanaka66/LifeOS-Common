@@ -74,6 +74,11 @@ class PluginInterface(ABC):
         """Clean up resources when plugin is unloaded."""
         pass
 
+    @abstractmethod
+    def is_running(self) -> bool:
+        """Check if the plugin is currently running."""
+        pass
+
 
 class PluginBase(PluginInterface):
     """
@@ -87,6 +92,7 @@ class PluginBase(PluginInterface):
         self._config = None
         self._logger = logging.getLogger(f"plugin.{plugin_id}")
         self._is_initialized = False
+        self._is_running = False
 
     @property
     def id(self) -> str:
@@ -100,11 +106,12 @@ class PluginBase(PluginInterface):
     def name(self) -> str:
         return self._name
 
-    def initialize(self, config: Dict[str, Any]) -> None:
+    def initialize(self, config: Dict[str, Any] = None) -> bool:
         """Initialize the plugin with configuration."""
-        self._config = config
+        self._config = config or {}
         self._is_initialized = True
         self._logger.info(f"Plugin {self._id} initialized")
+        return True
 
     def get_manifest(self) -> Dict[str, Any]:
         """Get plugin manifest information."""
@@ -131,12 +138,18 @@ class PluginBase(PluginInterface):
     def start(self) -> bool:
         """Start the plugin."""
         self._logger.info(f"Starting plugin {self._id}")
+        self._is_running = True
         return True
 
     def stop(self) -> bool:
         """Stop the plugin."""
         self._logger.info(f"Stopping plugin {self._id}")
+        self._is_running = False
         return True
+
+    def is_running(self) -> bool:
+        """Check if the plugin is currently running."""
+        return self._is_running
 
     def cleanup(self) -> None:
         """Clean up resources when plugin is unloaded."""
