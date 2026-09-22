@@ -1,13 +1,15 @@
 # LifeOS Common Module
 
-The common module provides shared interfaces, base classes, and utilities for building plugins for the LifeOS platform. This module contains all the core functionality that plugins can use to interact with the platform.
+The common module provides shared interfaces, base classes, and utilities for building plugins and modules for the LifeOS platform. This module contains all the core functionality that plugins and modules can use to interact with the platform.
 
 ## Features
 
 - **Plugin Interface**: Standard contract for all plugins
 - **Plugin Manager**: Lifecycle management of plugins
+- **Module Interface**: Standard contract for all modules  
+- **Module Manager**: Lifecycle management of modules
 - **Data Models**: Base classes for data entities
-- **Event System**: Communication between plugins and system components
+- **Event System**: Communication between plugins, modules and system components
 - **Decorators**: Common decorators for plugin development
 - **Utilities**: Helper functions and tools
 
@@ -40,6 +42,21 @@ class MyPlugin(PluginBase):
         return {"message": "Hello from my plugin!"}
 ```
 
+### Basic Module Implementation
+
+```python
+from common.module_interface import ModuleBase
+from common.decorators import require_permission
+
+class MyModule(ModuleBase):
+    def __init__(self):
+        super().__init__("my.module", "1.0.0", "My Sample Module")
+    
+    @require_permission("sample.read")
+    def get_data(self):
+        return {"message": "Hello from my module!"}
+```
+
 ### Plugin Manager Usage
 
 ```python
@@ -56,6 +73,22 @@ manager.install_plugin("/path/to/plugin")
 manager.enable_plugin("my.plugin")
 ```
 
+### Module Manager Usage
+
+```python
+from common.module_manager import BaseModuleManager
+
+# Create a module manager
+manager = BaseModuleManager()
+
+# Register your module
+manager.register_module(MyModule())
+
+# Enable and start modules
+manager.enable_module("my.module")
+manager.start_module("my.module")
+```
+
 ## Components
 
 ### Plugin Interface
@@ -66,6 +99,14 @@ manager.enable_plugin("my.plugin")
 - `PluginManagerInterface`: Interface for plugin management operations
 - `BasePluginManager`: Core implementation of plugin manager
 
+### Module Interface
+- `ModuleInterface`: Abstract base interface for all modules
+- `ModuleBase`: Base implementation with common functionality
+
+### Module Manager
+- `ModuleManagerInterface`: Interface for module management operations
+- `BaseModuleManager`: Core implementation of module manager
+
 ### Data Models
 - `BaseModel`: Base class for data models
 - `DataModelMixin`: Utility functions for data models
@@ -74,6 +115,7 @@ manager.enable_plugin("my.plugin")
 - `EventBusInterface`: Interface for event bus operations
 - `Event`: Event data structure
 - `EventBus`: Implementation of the event bus system
+- `EventType`: Enum defining supported event types
 
 ### Decorators
 - `require_permission`: Permission checking decorator

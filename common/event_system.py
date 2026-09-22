@@ -11,6 +11,27 @@ import uuid
 import logging
 
 
+# Define event types enum
+from enum import Enum
+
+class EventType(Enum):
+    """
+    Enum defining supported event types in the LifeOS platform.
+
+    These are standard event types that plugins and modules can use to
+    communicate within the system.
+    """
+    PLUGIN_STARTED = "plugin.started"
+    PLUGIN_STOPPED = "plugin.stopped"
+    MODULE_STARTED = "module.started"
+    MODULE_STOPPED = "module.stopped"
+    SYSTEM_STARTED = "system.started"
+    SYSTEM_STOPPED = "system.stopped"
+    DATA_CHANGED = "data.changed"
+    CONFIGURATION_CHANGED = "config.changed"
+    ERROR_OCCURRED = "error.occurred"
+
+
 @dataclass
 class Event:
     """
