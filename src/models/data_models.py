@@ -4,7 +4,7 @@ Data Models
 This file defines the base data model classes and interfaces for module entities.
 """
 
-from typing import Dict, Any, Optional
+from typing import Dict, List, Any, Optional
 from abc import ABC, abstractmethod
 from uuid import UUID
 
@@ -34,6 +34,12 @@ class ModuleEntity(BaseModel):
     def get_entity_type(self) -> str:
         """Get the type of entity."""
         pass
+
+class PluginEntity(ModuleEntity):
+    """Entity representing a plugin."""
+
+    def get_entity_type(self) -> str:
+        return "plugin"
 
 class ModuleDataManager(ABC):
     """Interface for data management in modules."""

@@ -1,5 +1,5 @@
-from common.plugin_interface import PluginBase
-from common.plugin_config import PluginManifest, PluginConfig
+from src.api.plugin_interface import PluginBase
+from src.models.plugin_config import PluginManifest, PluginConfig
 
 # Test basic plugin implementation
 class TestPlugin(PluginBase):

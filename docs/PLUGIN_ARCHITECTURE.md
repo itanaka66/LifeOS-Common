@@ -69,13 +69,13 @@ plugin-name/
 ├── manifest.yaml          # Plugin metadata and requirements
 ├── plugin.py              # Main plugin implementation
 ├── migrations/            # Database migration files
-│   └── versions/
-│       ├── 0001_initial.py
-│       └── ...
+━E  └── versions/
+━E      ├── 0001_initial.py
+━E      └── ...
 ├── api/                   # API endpoints
-│   └── v1/
-│       ├── __init__.py
-│       └── endpoints.py
+━E  └── v1/
+━E      ├── __init__.py
+━E      └── endpoints.py
 └── static/                # Static assets (UI, etc.)
     └── ui/
 ```
@@ -195,25 +195,25 @@ All plugin endpoints follow REST conventions:
 ```bash
 plugin-repo/
 ├── plugin_name/
-│   ├── __init__.py
-│   ├── manifest.py          # Plugin manifest
-│   ├── plugin.py            # Main plugin class
-│   ├── api/                 # API endpoints
-│   │   ├── __init__.py
-│   │   └── endpoints.py
-│   ├── models/              # Data models
-│   │   ├── __init__.py
-│   │   └── entities.py
-│   ├── services/            # Business logic
-│   │   ├── __init__.py
-│   │   └── service.py
-│   ├── migrations/          # Database migrations
-│   │   └── versions/
-│   │       └── 0001_initial.py
-│   └── static/              # Static assets (UI, etc.)
-│       └── ui/
+━E  ├── __init__.py
+━E  ├── manifest.py          # Plugin manifest
+━E  ├── plugin.py            # Main plugin class
+━E  ├── api/                 # API endpoints
+━E  ━E  ├── __init__.py
+━E  ━E  └── endpoints.py
+━E  ├── models/              # Data models
+━E  ━E  ├── __init__.py
+━E  ━E  └── entities.py
+━E  ├── services/            # Business logic
+━E  ━E  ├── __init__.py
+━E  ━E  └── service.py
+━E  ├── migrations/          # Database migrations
+━E  ━E  └── versions/
+━E  ━E      └── 0001_initial.py
+━E  └── static/              # Static assets (UI, etc.)
+━E      └── ui/
 ├── tests/
-│   └── test_plugin.py
+━E  └── test_plugin.py
 ├── requirements.txt
 ├── setup.py
 └── README.md
@@ -337,16 +337,16 @@ class PluginConfig(BaseModel):
 Main application imports:
 ```python
 # main_app.py
-from common.plugin_interface import PluginInterface
-from common.plugin_manager import PluginManagerInterface
-from common.plugin_config import PluginManifest, PluginConfig
+from src.api.plugin_interface import PluginInterface
+from src.service.plugin_manager import PluginManagerInterface
+from src.models.plugin_config import PluginManifest, PluginConfig
 from common.event_system import EventBusInterface, Event
 
 # Plugin modules import from common design:
 # In plugin code:
-from common.plugin_interface import PluginInterface
+from src.api.plugin_interface import PluginInterface
 from common.data_models import PluginEntity, PluginDataManager
-from common.plugin_config import PluginConfig
+from src.models.plugin_config import PluginConfig
 ```
 
 ### 2. Runtime Integration

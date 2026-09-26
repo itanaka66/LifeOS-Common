@@ -9,7 +9,7 @@ import os
 # Add the parent directory to the Python path so we can import from it
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from . import *
+from src import *
 
 def main():
     """Main entry point for the common module."""

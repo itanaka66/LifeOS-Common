@@ -10,7 +10,7 @@ import os
 import json
 from pathlib import Path
 
-from .plugin_interface import PluginInterface
+from src.api.plugin_interface import PluginInterface
 
 
 class PluginManagerInterface(ABC):

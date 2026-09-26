@@ -13,14 +13,14 @@ from unittest.mock import Mock, patch
 # Add the common directory to the path so we can import from it
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'common'))
 
-from common.plugin_interface import PluginInterface, PluginBase
-from common.plugin_manager import PluginManagerInterface, BasePluginManager
-from common.module_interface import ModuleInterface, ModuleBase
-from common.module_manager import ModuleManagerInterface, BaseModuleManager
-from common.data_models import BaseModel, PluginEntity
-from common.event_system import EventBus, Event, EventType
-from common.decorators import require_permission, validate_input
-from common.utils import setup_logging, generate_plugin_id, sanitize_input
+from src.api.plugin_interface import PluginInterface, PluginBase
+from src.service.plugin_manager import PluginManagerInterface, BasePluginManager
+from src.api.module_interface import ModuleInterface, ModuleBase
+from src.service.module_manager import ModuleManagerInterface, BaseModuleManager
+from src.models.data_models import BaseModel, PluginEntity
+from src.api.event_system import EventBus, Event, EventType
+from src.decorators import require_permission, validate_input
+from src.utils import setup_logging, generate_plugin_id, sanitize_input
 
 
 class TestPluginFunctionality(unittest.TestCase):

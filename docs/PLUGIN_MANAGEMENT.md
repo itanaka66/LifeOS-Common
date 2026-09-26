@@ -16,9 +16,8 @@ The core plugin management system consists of several components:
 
 ### 2. Data Flow
 ```
-User Request → Plugin Manager → Plugin Registry → Plugin Execution
-     ↑           ↓              ↓             ↓
-   Install   Validation    Database      API/Service
+User Request ↁEPlugin Manager ↁEPlugin Registry ↁEPlugin Execution
+     ↁE          ↁE             ↁE            ↁE   Install   Validation    Database      API/Service
    Update    Compatibility  Storage       Endpoints
    Remove    Dependencies    Cache        Services
 ```

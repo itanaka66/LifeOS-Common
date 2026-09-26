@@ -72,10 +72,10 @@ These common files should be imported by extension developers when creating new 
 
 ```python
 # Example usage in an extension
-from lifeos_common.module_interface import ModuleInterface
-from lifeos_common.config_schema import ModuleManifest, ModuleConfig
-from lifeos_common.event_system import EventBusInterface, Event
-from lifeos_common.data_models import ModuleEntity, ModuleDataManager
+from src.api.module_interface import ModuleInterface
+from src.models.config_schema import ModuleManifest, ModuleConfig
+from src.api.event_system import EventBusInterface, Event
+from src.models.data_models import ModuleEntity, ModuleDataManager
 ```
 
 The common files provide the foundation that ensures all extensions can be properly integrated with the main LifeOS platform while allowing developers to create extensions in separate repositories.

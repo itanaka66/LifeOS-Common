@@ -35,23 +35,23 @@ plugin-name/
 ├── manifest.yaml          # Plugin metadata and requirements
 ├── plugin.py              # Main plugin implementation
 ├── migrations/            # Database migration files
-│   └── versions/
-│       ├── 0001_initial.py
-│       └── ...
+━E  └── versions/
+━E      ├── 0001_initial.py
+━E      └── ...
 ├── api/                   # API endpoints
-│   └── v1/
-│       ├── __init__.py
-│       └── endpoints.py
+━E  └── v1/
+━E      ├── __init__.py
+━E      └── endpoints.py
 ├── models/                # Data models
-│   ├── __init__.py
-│   └── entities.py
+━E  ├── __init__.py
+━E  └── entities.py
 ├── services/              # Business logic
-│   ├── __init__.py
-│   └── service.py
+━E  ├── __init__.py
+━E  └── service.py
 ├── static/                # Static assets (UI, etc.)
-│   └── ui/
+━E  └── ui/
 ├── tests/                 # Test files
-│   └── test_plugin.py
+━E  └── test_plugin.py
 ├── requirements.txt       # Plugin-specific dependencies
 └── README.md              # Documentation
 ```
@@ -118,8 +118,8 @@ All plugins must implement the `PluginInterface` defined in the common library:
 
 ```python
 # plugin.py
-from common.plugin_interface import PluginInterface
-from common.plugin_config import PluginConfig
+from src.api.plugin_interface import PluginInterface
+from src.models.plugin_config import PluginConfig
 import logging
 
 class SamplePlugin(PluginInterface):

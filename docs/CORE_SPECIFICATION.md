@@ -137,13 +137,13 @@ plugin-name/
 ├── manifest.yaml          # Plugin metadata and requirements
 ├── plugin.py              # Main plugin implementation
 ├── migrations/            # Database migration files
-│   └── versions/
-│       ├── 0001_initial.py
-│       └── ...
+━E  └── versions/
+━E      ├── 0001_initial.py
+━E      └── ...
 ├── api/                   # API endpoints
-│   └── v1/
-│       ├── __init__.py
-│       └── endpoints.py
+━E  └── v1/
+━E      ├── __init__.py
+━E      └── endpoints.py
 └── static/                # Static assets (UI, etc.)
     └── ui/
 ```

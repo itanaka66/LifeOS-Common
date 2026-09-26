@@ -360,25 +360,25 @@ class ModuleDataManager(ABC):
 ```
 extension-repo/
 ├── extension_name/
-│   ├── __init__.py
-│   ├── manifest.py          # Extension manifest
-│   ├── extension.py         # Main extension class
-│   ├── api/                 # API endpoints
-│   │   ├── __init__.py
-│   │   └── endpoints.py
-│   ├── models/              # Data models
-│   │   ├── __init__.py
-│   │   └── entities.py
-│   ├── services/            # Business logic
-│   │   ├── __init__.py
-│   │   └── service.py
-│   ├── migrations/          # Database migrations
-│   │   └── versions/
-│   │       └── 0001_initial.py
-│   └── static/              # Static assets (UI, etc.)
-│       └── ui/
+━E  ├── __init__.py
+━E  ├── manifest.py          # Extension manifest
+━E  ├── extension.py         # Main extension class
+━E  ├── api/                 # API endpoints
+━E  ━E  ├── __init__.py
+━E  ━E  └── endpoints.py
+━E  ├── models/              # Data models
+━E  ━E  ├── __init__.py
+━E  ━E  └── entities.py
+━E  ├── services/            # Business logic
+━E  ━E  ├── __init__.py
+━E  ━E  └── service.py
+━E  ├── migrations/          # Database migrations
+━E  ━E  └── versions/
+━E  ━E      └── 0001_initial.py
+━E  └── static/              # Static assets (UI, etc.)
+━E      └── ui/
 ├── tests/
-│   └── test_extension.py
+━E  └── test_extension.py
 ├── requirements.txt
 ├── setup.py
 └── README.md
@@ -538,16 +538,16 @@ class ModuleInstaller:
 Main application imports:
 ```python
 # main_app.py
-from lifeos_common.module_interface import ModuleInterface
-from lifeos_common.module_manager import ModuleManagerInterface
-from lifeos_common.config_schema import ModuleManifest, ModuleConfig
-from lifeos_common.event_system import EventBusInterface, Event
+from src.api.module_interface import ModuleInterface
+from src.service.module_manager import ModuleManagerInterface
+from src.models.config_schema import ModuleManifest, ModuleConfig
+from src.api.event_system import EventBusInterface, Event
 
 # Module modules import from common design:
 # In module code:
-from lifeos_common.module_interface import ModuleInterface
-from lifeos_common.data_models import ModuleEntity, ModuleDataManager
-from lifeos_common.config_schema import ModuleConfig
+from src.api.module_interface import ModuleInterface
+from src.models.data_models import ModuleEntity, ModuleDataManager
+from src.models.config_schema import ModuleConfig
 ```
 
 ### 2. Runtime Integration
