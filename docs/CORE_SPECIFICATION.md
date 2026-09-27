@@ -303,7 +303,7 @@ All endpoints follow REST conventions:
 ## Deployment Requirements
 
 ### Development Environment
-- Python 3.9+
+- Python 3.12+
 - PostgreSQL 13+
 - Redis 6+
 - Docker 20+
