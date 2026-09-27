@@ -496,7 +496,7 @@ def downgrade():
 ## Deployment Requirements
 
 ### 1. Development Environment
-- Python 3.9+
+- Python 3.12+
 - PostgreSQL 13+
 - Redis 6+
 - Docker 20+

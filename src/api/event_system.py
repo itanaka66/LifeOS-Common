@@ -16,6 +16,10 @@ class EventType(Enum):
     DOCUMENT_CREATED = "document.created"
     MODULE_INSTALLED = "module.installed"
     MODULE_UNINSTALLED = "module.uninstalled"
+    MODULE_LOADED = "module.loaded"
+    MODULE_STARTED = "module.started"
+    MODULE_FAILED = "module.failed"
+    MODULE_STOPPED = "module.stopped"
 
 class Event:
     """Event data structure."""
