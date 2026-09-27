@@ -20,6 +20,9 @@ class EventType(Enum):
     MODULE_STARTED = "module.started"
     MODULE_FAILED = "module.failed"
     MODULE_STOPPED = "module.stopped"
+    PLUGIN_ACTIVATED = "plugin.activated"
+    PLUGIN_DEACTIVATED = "plugin.deactivated"
+    PLUGIN_UNINSTALLED = "plugin.uninstalled"
 
 class Event:
     """Event data structure."""
